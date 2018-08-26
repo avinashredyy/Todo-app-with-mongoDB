@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {{!<link rel="stylesheet" href="../styles/app.css">}}
+    <style>
+
+    body{
+      background: #EB5757;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000000, #EB5757);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000, #EB5757); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    #container{
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+      width: 800px;
+      margin: 100px auto;
+      background: #f7f7f7;
+    }
+
+    h1{
+      background-color: #2980e9;
+      color: white;
+      margin: 0;
+      padding: 10px 20px;
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li{
+      background: #fff;
+      height: 40px;
+      line-height: 40px;
+      color: #666;
+    }
+
+    li:nth-child(2n){
+      background: #f7f7f7;
+    }
+
+    input{
+      font-size: 18px;
+      background-color: #f7f7f7;
+      width: 93%;
+      padding: 13px 13px 13px 20px;
+      box-sizing: border-box;
+      color: #2980b9;
+    }
+
+    input:focus{
+      background: #fff;
+      border: 3px solid #2980b9;
+      outline: none;
+    }
+
+    .fa-plus{
+      float: right;
+    }
+
+    #btn{
+      background-color: #3ec777;
+      height: 40px;
+      margin-right: 20px;
+      text-align: center;
+      color: white;
+      width: 0;
+      display: inline-block;
+      opacity: 0;
+    }
+
+    #delbtn{
+      background-color: #E52929;
+      float: right;
+      height: 40px;
+      text-align: center;
+      color: white;
+    }
+
+    li:hover #btn{
+      width: 40px;
+      transition: 0.2s linear;
+      opacity: 1.0;
+    }
+
+    span.delete{
+      margin-left: 15px;
+      background-color: #e74c3c;
+    }
+
+    button {
+      width: 47px;
+      height: 45px;
+      background: #2980e9;
+    }
+
+
+  </style>
+
+
+
+    <title>To Do App with Mongo</title>
+  </head>
+  <body>
+    <div id="container">
+    <h1>Stuff I need to do</h1>
+
+    <form action="/todos" method="post">
+      <input type="text" name="descreption">
+      <button type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+    </form>
+    <ul>
+      {{#todos}}
+      <li>
+        <form action="todos/{{_id}}/completed" method="post">
+          <button id="btn"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button> {{ descreption }}
+          <button formaction="todos/{{_id}}/delete" formmethod="post"id="delbtn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        </form>
+        </li>
+      {{/todos}}
+      {{#doneTodos}}
+      <li style="text-decoration:line-through;color:grey">
+        <form action="todos/{{_id}}/completed" method="post">
+          <button id="btn"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button> {{ descreption }}
+          <button formaction="todos/{{_id}}/delete" formmethod="post" id="delbtn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        </form>
+          </li>
+      {{/doneTodos}}
+    </ul>
+  </div>
+  </body>
+</html>
