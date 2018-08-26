@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const routes = require('./routes/routes');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://admin:password1@ds233212.mlab.com:33212/mongo-todo-app').then(function () {
+mongoose.connect('mongodb://localhost/test').then(function () {
   console.log('Database connected');
 })
 
