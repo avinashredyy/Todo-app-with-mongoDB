@@ -6,7 +6,7 @@ A Todo-List web app using MongoDB, Express, Mustache and NodeJS.
 2. Green tick icon visible when hovering over the task. Clicking on the icon will toggle the line-through effect.
 3. Clicking on the red trash icon will remove the task from the list.
 4. Cannot add an empty task. It will prompt a message if someone tries to add an empty task.(validation within the DB).
-5. Demo of the app deployed on Heroku here: https://murmuring-chamber-18613.herokuapp.com
+5. Demo of the app deployed on Heroku here: https://glacial-tundra-80526.herokuapp.com/
 
 To run the app locally:(Follow each step only after the previous step is completed)
 
